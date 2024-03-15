@@ -36,12 +36,11 @@ def main():
     air_temperature = st.number_input("Enter Air Temperature:", value=0.0, step=0.1)
     process_temperature = st.number_input("Enter Process Temperature:", value=0.0, step=0.1)
     torque = st.number_input("Enter Torque:", value=0.0, step=0.1)
-    target = st.number_input("Enter Target:", value=0.0, step=0.1)
 
     type_mapper_options = {'M': 0, 'L': 1, 'H': 2}
     type_mapper = st.selectbox("Select Type:", options=list(type_mapper_options.keys()))
 
-    input_arr = [air_temperature, process_temperature, torque, target, type_mapper_options[type_mapper]]
+    input_arr = [air_temperature, process_temperature, torque, 0, type_mapper_options[type_mapper]]
 
     if st.button("Submit"):
         rf_prediction, keras_argmax = process_input(input_arr)
