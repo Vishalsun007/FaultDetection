@@ -13,13 +13,11 @@ failure_mapper = {
     5: 'Heat Dissipation Failure'
 }
 
-
 def process_input(input_arr):
     with open("random_forest_model.pkl", "rb") as file:
         rf = pickle.load(file)
 
     model = tf.keras.models.load_model('keras_model.h5')
-
 
     ar = np.array(input_arr).reshape(1, -1)
 
